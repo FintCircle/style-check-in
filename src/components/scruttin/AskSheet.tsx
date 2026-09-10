@@ -72,12 +72,22 @@ export function AskSheet({ onClose, onPost }: Props) {
           className="mt-2 h-11 w-full rounded-lg border border-input bg-card px-3.5 text-sm outline-none placeholder:text-muted-foreground focus:ring-2 focus:ring-ring/30"
         />
 
-        <p className="label-caps mt-5 text-muted-foreground">Who answers</p>
+        <p className="label-caps mt-5 text-muted-foreground">Who sees it and votes</p>
         <div className="mt-2 grid grid-cols-2 gap-2">
           {(
             [
-              { key: "everyone" as Audience, label: "Everyone", Icon: Globe, note: "Honest strangers" },
-              { key: "my-people" as Audience, label: "My people", Icon: Users, note: "Only who you trust" },
+              {
+                key: "everyone" as Audience,
+                label: "Everyone",
+                Icon: Globe,
+                note: "The whole Scruttin community votes",
+              },
+              {
+                key: "my-people" as Audience,
+                label: "My people",
+                Icon: Users,
+                note: "Only the people you've added can see it",
+              },
             ]
           ).map(({ key, label, Icon, note }) => (
             <button

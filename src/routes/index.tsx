@@ -45,8 +45,10 @@ function Index() {
   const visible = useMemo(
     () =>
       audience === "everyone"
-        ? posts
-        : posts.filter((p) => p.name === "You" || isTrusted(p.name)),
+        ? posts.filter((p) => p.audience === "everyone")
+        : posts.filter(
+            (p) => p.audience === "my-people" && (p.name === "You" || isTrusted(p.name)),
+          ),
     [audience, posts, isTrusted],
   );
 
@@ -98,15 +100,17 @@ function Index() {
       <section className="border-b border-border bg-secondary px-4 py-4">
         <p className="label-caps text-muted-foreground">The Scruttin rule</p>
         <p className="mt-1.5 text-sm leading-snug">
-          Every outfit runs on a clock. Verdicts stay hidden until you vote, then the result locks
-          when time's up — so you get an answer while you can still change.
+          When you ask, you choose who answers: the whole community, or only your people. Every
+          outfit runs on a clock, verdicts stay hidden until you vote, and the result locks when
+          time's up.
         </p>
       </section>
 
       {visible.length === 0 ? (
         <div className="px-4 py-16 text-center">
           <p className="text-sm text-muted-foreground">
-            None of your people are asking right now.
+            Nobody has asked their people for an opinion right now. Only people who added you can
+            show up here.
           </p>
           <button
             onClick={() => setManaging(true)}

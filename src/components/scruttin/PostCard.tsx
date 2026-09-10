@@ -53,7 +53,7 @@ export function PostCard({ post }: { post: Post }) {
             </button>
             {post.audience === "my-people" && (
               <span className="label-caps inline-flex items-center gap-1 rounded-full border border-border px-1.5 py-0.5 text-muted-foreground">
-                <Users className="size-3" /> My people
+                <Users className="size-3" /> {post.name === "You" ? "My people" : "Their people"}
               </span>
             )}
           </div>
