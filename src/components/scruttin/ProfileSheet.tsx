@@ -63,9 +63,16 @@ export function ProfileSheet({ profile, onClose }: { profile: Profile; onClose: 
 
         <p className="mt-3 text-xs text-muted-foreground">On Scruttin since {profile.joined}</p>
 
-        <button className="mt-5 inline-flex h-12 w-full items-center justify-center gap-2 rounded-lg bg-primary font-display text-sm font-semibold text-primary-foreground">
-          <Users className="size-4" />
-          {profile.inMyPeople ? "In your people" : "Add to my people"}
+        <button
+          onClick={() => toggleTrust(profile.name)}
+          className={
+            trusted
+              ? "mt-5 inline-flex h-12 w-full items-center justify-center gap-2 rounded-lg border border-border bg-card font-display text-sm font-semibold text-foreground"
+              : "mt-5 inline-flex h-12 w-full items-center justify-center gap-2 rounded-lg bg-primary font-display text-sm font-semibold text-primary-foreground"
+          }
+        >
+          {trusted ? <Users className="size-4" /> : <UserPlus className="size-4" />}
+          {trusted ? "In your people — tap to remove" : "Add to my people"}
         </button>
       </div>
     </div>
