@@ -1,9 +1,12 @@
-import { MapPin, Users, X } from "lucide-react";
+import { MapPin, UserPlus, Users, X } from "lucide-react";
 import { countryName, type Profile } from "@/lib/scruttin-profiles";
+import { useMyPeople } from "@/lib/scruttin-people";
 import { Avatar } from "./Avatar";
 import { CountrySilhouette } from "./CountrySilhouette";
 
 export function ProfileSheet({ profile, onClose }: { profile: Profile; onClose: () => void }) {
+  const { isTrusted, toggleTrust } = useMyPeople();
+  const trusted = isTrusted(profile.name);
   return (
     <div
       className="fixed inset-0 z-50 flex flex-col justify-end bg-foreground/40"
