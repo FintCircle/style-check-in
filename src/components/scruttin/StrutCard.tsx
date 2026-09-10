@@ -16,7 +16,7 @@ export function StrutCard({ strut }: { strut: Strut }) {
     if (!node) return;
     const io = new IntersectionObserver(
       ([entry]) => {
-        if (!entry.isIntersecting) {
+        if (entry && !entry.isIntersecting) {
           ref.current?.pause();
           setPlaying(false);
         }
