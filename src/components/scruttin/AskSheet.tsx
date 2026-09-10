@@ -76,8 +76,18 @@ export function AskSheet({ onClose, onPost }: Props) {
         <div className="mt-2 grid grid-cols-2 gap-2">
           {(
             [
-              { key: "everyone" as Audience, label: "Everyone", Icon: Globe, note: "Honest strangers" },
-              { key: "my-people" as Audience, label: "My people", Icon: Users, note: "Only who you trust" },
+              {
+                key: "everyone" as Audience,
+                label: "Everyone",
+                Icon: Globe,
+                note: "The whole Scruttin community votes",
+              },
+              {
+                key: "my-people" as Audience,
+                label: "My people",
+                Icon: Users,
+                note: "Only the people you've added can see it",
+              },
             ]
           ).map(({ key, label, Icon, note }) => (
             <button
