@@ -109,7 +109,8 @@ function Index() {
       {visible.length === 0 ? (
         <div className="px-4 py-16 text-center">
           <p className="text-sm text-muted-foreground">
-            None of your people are asking right now.
+            Nobody has asked their people for an opinion right now. Only people who added you can
+            show up here.
           </p>
           <button
             onClick={() => setManaging(true)}
