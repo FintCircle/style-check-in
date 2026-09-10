@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { MessageCircle, Send, Users } from "lucide-react";
 import type { Comment, Post } from "@/lib/scruttin-data";
+import { getProfile, type Profile } from "@/lib/scruttin-profiles";
 import { Avatar } from "./Avatar";
 import { ClockPill, useCountdown } from "./Countdown";
+import { ProfileSheet } from "./ProfileSheet";
 import { VerdictBar } from "./VerdictBar";
 
 export function PostCard({ post }: { post: Post }) {
@@ -13,6 +15,7 @@ export function PostCard({ post }: { post: Post }) {
   const [comments, setComments] = useState<Comment[]>(post.comments);
   const [showComments, setShowComments] = useState(false);
   const [draft, setDraft] = useState("");
+  const [profile, setProfile] = useState<Profile | null>(null);
 
   function vote(next: "keep" | "change") {
     if (locked || choice) return;
@@ -34,10 +37,20 @@ export function PostCard({ post }: { post: Post }) {
   return (
     <article className="border-b border-border bg-card px-4 py-5">
       <header className="flex items-start gap-3">
-        <Avatar initials={post.initials} />
+        <button
+          onClick={() => setProfile(getProfile(post.name, post.initials))}
+          aria-label={`View ${post.name}'s profile`}
+        >
+          <Avatar initials={post.initials} />
+        </button>
         <div className="min-w-0 flex-1">
           <div className="flex items-center gap-2">
-            <h3 className="truncate text-sm font-semibold">{post.name}</h3>
+            <button
+              onClick={() => setProfile(getProfile(post.name, post.initials))}
+              className="truncate text-sm font-semibold"
+            >
+              {post.name}
+            </button>
             {post.audience === "my-people" && (
               <span className="label-caps inline-flex items-center gap-1 rounded-full border border-border px-1.5 py-0.5 text-muted-foreground">
                 <Users className="size-3" /> My people
