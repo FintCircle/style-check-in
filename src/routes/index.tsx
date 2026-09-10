@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useMemo, useState } from "react";
+import { useMemo, useState, type ReactNode } from "react";
 import { Bell, Globe, Plus, Users } from "lucide-react";
 import { POSTS, type Audience, type Post } from "@/lib/scruttin-data";
 import { PostCard } from "@/components/scruttin/PostCard";
@@ -109,7 +109,7 @@ function ToggleTab({
 }: {
   active: boolean;
   onClick: () => void;
-  icon: React.ReactNode;
+  icon: ReactNode;
   label: string;
 }) {
   return (
