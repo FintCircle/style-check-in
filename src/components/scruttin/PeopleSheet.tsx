@@ -60,8 +60,8 @@ export function PeopleSheet({ onClose }: { onClose: () => void }) {
         <div className="mt-4 rounded-xl border border-border bg-secondary px-3.5 py-3">
           <p className="label-caps text-muted-foreground">Invite someone</p>
           <p className="mt-1.5 text-sm leading-snug">
-            Send your link. Whoever joins with it lands in your people, and their verdicts show up
-            marked.
+            Send your link. Whoever joins with it lands in your people — they're the only ones who
+            can see and vote when you ask your people instead of everyone.
           </p>
           <p className="mt-2 truncate rounded-lg border border-border bg-card px-3 py-2 text-xs text-muted-foreground">
             {inviteLink}
