@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMemo, useState, type ReactNode } from "react";
 import { Bell, Globe, Plus, UserPlus, Users } from "lucide-react";
 import { POSTS, type Audience, type Post } from "@/lib/scruttin-data";
@@ -65,6 +65,12 @@ function Index() {
             </p>
           </div>
           <div className="flex items-center gap-1">
+            <Link
+              to="/strut"
+              className="label-caps rounded-full border border-border px-2.5 py-1.5 text-foreground"
+            >
+              Strut
+            </Link>
             <button
               onClick={() => setManaging(true)}
               aria-label="Manage my people"
