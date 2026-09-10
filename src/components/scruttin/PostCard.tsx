@@ -102,10 +102,17 @@ export function PostCard({ post }: { post: Post }) {
         <div className="rise mt-3 space-y-3">
           {comments.map((c) => (
             <div key={c.id} className="flex gap-2.5">
-              <Avatar initials={c.initials} size={28} />
+              <button
+                onClick={() => setProfile(getProfile(c.name, c.initials))}
+                aria-label={`View ${c.name}'s profile`}
+              >
+                <Avatar initials={c.initials} size={28} />
+              </button>
               <div className="min-w-0">
                 <p className="text-xs font-semibold">
-                  {c.name}
+                  <button onClick={() => setProfile(getProfile(c.name, c.initials))}>
+                    {c.name}
+                  </button>
                   {c.fromMyPeople && (
                     <span className="ml-1.5 font-normal text-muted-foreground">· your people</span>
                   )}
@@ -139,6 +146,7 @@ export function PostCard({ post }: { post: Post }) {
           )}
         </div>
       )}
+      {profile && <ProfileSheet profile={profile} onClose={() => setProfile(null)} />}
     </article>
   );
 }
