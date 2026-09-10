@@ -1,14 +1,16 @@
-# Welcome to your Lovable project
+# Style Check-In
+
+Build Scruttin. Scruttin is where you get a second opinion on what you're wearing. Scruttin — Get a second opinion. or Scruttin — Before you wear it, ask. or Scruttin — What do you think? Will have two audiences, one is Everyone is the default and two, My People, people connected with or chosen to trust by user. Be inspired by today's social platforms but of course be unique. Let's have a USP.
 
 This project was built with [Lovable](https://lovable.dev).
 
 ## Build with Lovable
 
-Open your project in the [Lovable editor](https://lovable.dev) and keep building.
+Continue developing this project in the [Lovable editor](https://lovable.dev/projects/394d4582-b598-49ba-922a-79fc5dcce24e).
 
 - **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: connect the project to GitHub and every change made in Lovable is committed straight to your repository.
-- **Full ownership**: this code is yours. Push to your repository and your changes sync back into Lovable, ready for your next prompt.
+- **Stay in sync**: every change made in Lovable is committed straight to this repository.
+- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
 
 ## Development
 
@@ -20,10 +22,3 @@ cd <repository-name>
 npm i
 npm run dev
 ```
-
-## Built with
-
-- TanStack Start
-- TypeScript
-- React
-- Tailwind CSS
