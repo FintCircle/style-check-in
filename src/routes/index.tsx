@@ -1,9 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useMemo, useState, type ReactNode } from "react";
-import { Bell, Globe, Plus, Users } from "lucide-react";
+import { Bell, Globe, Plus, UserPlus, Users } from "lucide-react";
 import { POSTS, type Audience, type Post } from "@/lib/scruttin-data";
+import { PeopleProvider, useMyPeople } from "@/lib/scruttin-people";
 import { PostCard } from "@/components/scruttin/PostCard";
 import { AskSheet } from "@/components/scruttin/AskSheet";
+import { PeopleSheet } from "@/components/scruttin/PeopleSheet";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -22,17 +24,30 @@ export const Route = createFileRoute("/")({
       },
     ],
   }),
-  component: Index,
+  component: IndexRoute,
 });
+
+function IndexRoute() {
+  return (
+    <PeopleProvider>
+      <Index />
+    </PeopleProvider>
+  );
+}
 
 function Index() {
   const [audience, setAudience] = useState<Audience>("everyone");
   const [posts, setPosts] = useState<Post[]>(POSTS);
   const [asking, setAsking] = useState(false);
+  const [managing, setManaging] = useState(false);
+  const { trusted, isTrusted } = useMyPeople();
 
   const visible = useMemo(
-    () => (audience === "everyone" ? posts : posts.filter((p) => p.audience === "my-people")),
-    [audience, posts],
+    () =>
+      audience === "everyone"
+        ? posts
+        : posts.filter((p) => p.name === "You" || isTrusted(p.name)),
+    [audience, posts, isTrusted],
   );
 
   const liveCount = visible.filter((p) => p.secondsLeft > 0).length;
@@ -47,9 +62,21 @@ function Index() {
               {liveCount} outfit{liveCount === 1 ? "" : "s"} still on the clock
             </p>
           </div>
-          <button aria-label="Notifications" className="p-2">
-            <Bell className="size-5" />
-          </button>
+          <div className="flex items-center gap-1">
+            <button
+              onClick={() => setManaging(true)}
+              aria-label="Manage my people"
+              className="relative p-2"
+            >
+              <UserPlus className="size-5" />
+              <span className="absolute -top-0.5 -right-0.5 flex min-w-4 justify-center rounded-full bg-primary px-1 text-[0.625rem] leading-4 font-semibold text-primary-foreground">
+                {trusted.length}
+              </span>
+            </button>
+            <button aria-label="Notifications" className="p-2">
+              <Bell className="size-5" />
+            </button>
+          </div>
         </div>
 
         <div className="mt-3 flex gap-1 px-4 pb-3">
@@ -77,9 +104,17 @@ function Index() {
       </section>
 
       {visible.length === 0 ? (
-        <p className="px-4 py-16 text-center text-sm text-muted-foreground">
-          None of your people are asking right now.
-        </p>
+        <div className="px-4 py-16 text-center">
+          <p className="text-sm text-muted-foreground">
+            None of your people are asking right now.
+          </p>
+          <button
+            onClick={() => setManaging(true)}
+            className="mt-4 inline-flex h-11 items-center gap-2 rounded-lg bg-primary px-4 font-display text-sm font-semibold text-primary-foreground"
+          >
+            <UserPlus className="size-4" /> Invite or add people
+          </button>
+        </div>
       ) : (
         visible.map((post) => <PostCard key={post.id} post={post} />)
       )}
@@ -97,6 +132,7 @@ function Index() {
           onPost={(post) => setPosts((list) => [post, ...list])}
         />
       )}
+      {managing && <PeopleSheet onClose={() => setManaging(false)} />}
     </div>
   );
 }
