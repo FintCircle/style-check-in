@@ -45,8 +45,10 @@ function Index() {
   const visible = useMemo(
     () =>
       audience === "everyone"
-        ? posts
-        : posts.filter((p) => p.name === "You" || isTrusted(p.name)),
+        ? posts.filter((p) => p.audience === "everyone")
+        : posts.filter(
+            (p) => p.audience === "my-people" && (p.name === "You" || isTrusted(p.name)),
+          ),
     [audience, posts, isTrusted],
   );
 
