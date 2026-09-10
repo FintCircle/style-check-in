@@ -11,7 +11,7 @@ export function AskSheet({ onClose, onPost }: Props) {
   const [occasion, setOccasion] = useState("Everyday");
   const [question, setQuestion] = useState("");
   const [audience, setAudience] = useState<Audience>("everyone");
-  const [clock, setClock] = useState(CLOCK_OPTIONS[1].seconds);
+  const [clock, setClock] = useState(1200);
 
   function submit() {
     onPost({
