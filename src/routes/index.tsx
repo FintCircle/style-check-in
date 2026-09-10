@@ -100,8 +100,9 @@ function Index() {
       <section className="border-b border-border bg-secondary px-4 py-4">
         <p className="label-caps text-muted-foreground">The Scruttin rule</p>
         <p className="mt-1.5 text-sm leading-snug">
-          Every outfit runs on a clock. Verdicts stay hidden until you vote, then the result locks
-          when time's up — so you get an answer while you can still change.
+          When you ask, you choose who answers: the whole community, or only your people. Every
+          outfit runs on a clock, verdicts stay hidden until you vote, and the result locks when
+          time's up.
         </p>
       </section>
 
