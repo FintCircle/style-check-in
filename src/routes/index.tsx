@@ -66,6 +66,12 @@ function Index() {
           </div>
           <div className="flex items-center gap-1">
             <Link
+              to="/sidekick"
+              className="label-caps rounded-full border border-border px-2.5 py-1.5 text-foreground"
+            >
+              Sidekick
+            </Link>
+            <Link
               to="/strut"
               className="label-caps rounded-full border border-border px-2.5 py-1.5 text-foreground"
             >
