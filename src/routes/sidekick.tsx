@@ -1,8 +1,14 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import { Plus } from "lucide-react";
-import { KIND_META, SIDEKICK_POSTS, type SidekickKind } from "@/lib/sidekick-data";
+import {
+  KIND_META,
+  SIDEKICK_POSTS,
+  type SidekickKind,
+  type SidekickPost,
+} from "@/lib/sidekick-data";
 import { SidekickCard } from "@/components/scruttin/SidekickCard";
+import { SidekickComposer } from "@/components/scruttin/SidekickComposer";
 
 export const Route = createFileRoute("/sidekick")({
   head: () => ({
