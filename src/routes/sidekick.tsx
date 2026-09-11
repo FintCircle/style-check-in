@@ -40,63 +40,123 @@ function SidekickPage() {
     [filter],
   );
 
+  const activeDescription =
+    filter === "all"
+      ? "Every post asks you to do one thing: rate a fit, pick between two, decide keep or leave, or suggest a look."
+      : `${KIND_META[filter].label} posts ask for one clear opinion — the full story sits under “More from” the person asking.`;
+
   return (
-    <main className="mx-auto min-h-screen max-w-lg bg-card pb-24">
-      <header className="sticky top-0 z-30 border-b border-border bg-background/95 backdrop-blur">
-        <div className="flex items-center justify-between px-4 pt-4">
-          <div>
-            <h1 className="text-2xl leading-none font-semibold">Sidekick</h1>
-            <p className="mt-1 text-xs text-muted-foreground">
-              Room to explain yourself — no clock, no rush
-            </p>
+    <main className="min-h-screen bg-card pb-24 lg:mx-auto lg:flex lg:max-w-7xl lg:gap-10 lg:bg-background lg:px-8">
+      <aside className="hidden lg:sticky lg:top-0 lg:flex lg:h-screen lg:w-60 lg:shrink-0 lg:flex-col lg:border-r lg:border-border lg:py-10 lg:pr-8">
+        <div>
+          <h1 className="text-3xl leading-none font-semibold">Sidekick</h1>
+          <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+            Room to explain yourself — no clock, no rush
+          </p>
+        </div>
+
+        <nav className="mt-12" aria-label="Sidekick filters">
+          <p className="label-caps mb-3 text-muted-foreground">Browse by ask</p>
+          <div className="flex flex-col gap-1">
+            {FILTERS.map((f) => {
+              const label = f === "all" ? "Everything" : KIND_META[f].label;
+              const isActive = filter === f;
+
+              return (
+                <button
+                  key={f}
+                  onClick={() => setFilter(f)}
+                  aria-current={isActive ? "page" : undefined}
+                  className={
+                    isActive
+                      ? "flex items-center justify-between rounded-md bg-primary px-3 py-2.5 text-left text-sm font-medium text-primary-foreground"
+                      : "flex items-center justify-between rounded-md px-3 py-2.5 text-left text-sm text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
+                  }
+                >
+                  <span>{label}</span>
+                  {isActive && <span className="size-1.5 rounded-full bg-primary-foreground" />}
+                </button>
+              );
+            })}
           </div>
-          <div className="flex items-center gap-1">
+        </nav>
+
+        <div className="mt-auto flex flex-col gap-2">
+          <button className="flex items-center justify-center gap-2 rounded-md bg-primary px-4 py-3 font-display text-sm font-semibold text-primary-foreground shadow-sm">
+            <Plus className="size-4" /> Post to Sidekick
+          </button>
+          <div className="mt-4 flex items-center gap-2">
             <Link
               to="/"
-              className="label-caps rounded-full border border-border px-2.5 py-1.5 text-foreground"
+              className="label-caps px-2 py-1.5 text-muted-foreground hover:text-foreground"
             >
               Feed
             </Link>
             <Link
               to="/strut"
-              className="label-caps rounded-full border border-border px-2.5 py-1.5 text-foreground"
+              className="label-caps px-2 py-1.5 text-muted-foreground hover:text-foreground"
             >
               Strut
             </Link>
           </div>
         </div>
+      </aside>
 
-        <div className="mt-3 flex gap-1 overflow-x-auto px-4 pb-3">
-          {FILTERS.map((f) => (
-            <button
-              key={f}
-              onClick={() => setFilter(f)}
-              className={
-                filter === f
-                  ? "shrink-0 rounded-full bg-primary px-3.5 py-1.5 text-sm font-medium text-primary-foreground"
-                  : "shrink-0 rounded-full border border-border bg-card px-3.5 py-1.5 text-sm text-muted-foreground"
-              }
-            >
-              {f === "all" ? "Everything" : KIND_META[f].label}
-            </button>
-          ))}
-        </div>
-      </header>
+      <div className="w-full lg:max-w-lg lg:pt-10">
+        <header className="sticky top-0 z-30 border-b border-border bg-background/95 backdrop-blur lg:static lg:border-0 lg:bg-transparent lg:pb-5">
+          <div className="flex items-center justify-between px-4 pt-4 lg:hidden">
+            <div>
+              <h1 className="text-2xl leading-none font-semibold">Sidekick</h1>
+              <p className="mt-1 text-xs text-muted-foreground">
+                Room to explain yourself — no clock, no rush
+              </p>
+            </div>
+            <div className="flex items-center gap-1">
+              <Link
+                to="/"
+                className="label-caps rounded-full border border-border px-2.5 py-1.5 text-foreground"
+              >
+                Feed
+              </Link>
+              <Link
+                to="/strut"
+                className="label-caps rounded-full border border-border px-2.5 py-1.5 text-foreground"
+              >
+                Strut
+              </Link>
+            </div>
+          </div>
 
-      <section className="border-b border-border bg-secondary px-4 py-4">
-        <p className="label-caps text-muted-foreground">How Sidekick works</p>
-        <p className="mt-1.5 text-sm leading-snug">
-          Every post asks you to do one thing: rate a fit, pick between two, decide keep or leave,
-          or suggest a look. The question stays short — the rest sits under “More from” the person
-          asking.
-        </p>
-      </section>
+          <div className="flex gap-1 overflow-x-auto px-4 py-3 lg:hidden">
+            {FILTERS.map((f) => (
+              <button
+                key={f}
+                onClick={() => setFilter(f)}
+                className={
+                  filter === f
+                    ? "shrink-0 rounded-full bg-primary px-3.5 py-1.5 text-sm font-medium text-primary-foreground"
+                    : "shrink-0 rounded-full border border-border bg-card px-3.5 py-1.5 text-sm text-muted-foreground"
+                }
+              >
+                {f === "all" ? "Everything" : KIND_META[f].label}
+              </button>
+            ))}
+          </div>
+        </header>
 
-      {visible.map((post) => (
-        <SidekickCard key={post.id} post={post} />
-      ))}
+        <section className="border-b border-border bg-secondary px-4 py-4 lg:border lg:bg-card lg:px-5">
+          <p className="label-caps text-muted-foreground">
+            {filter === "all" ? "How Sidekick works" : KIND_META[filter].label}
+          </p>
+          <p className="mt-1.5 text-sm leading-snug">{activeDescription}</p>
+        </section>
 
-      <button className="fixed bottom-6 left-1/2 z-40 flex -translate-x-1/2 items-center gap-2 rounded-full bg-primary px-5 py-3.5 font-display text-sm font-semibold text-primary-foreground shadow-lg">
+        {visible.map((post) => (
+          <SidekickCard key={post.id} post={post} />
+        ))}
+      </div>
+
+      <button className="fixed bottom-6 left-1/2 z-40 flex -translate-x-1/2 items-center gap-2 rounded-full bg-primary px-5 py-3.5 font-display text-sm font-semibold text-primary-foreground shadow-lg lg:hidden">
         <Plus className="size-4" /> Post to Sidekick
       </button>
     </main>
