@@ -3,7 +3,7 @@ import { Heart, MessageCircle, Play, Send } from "lucide-react";
 import { STRUT_MAX_SECONDS, type Strut } from "@/lib/strut-data";
 import { Avatar } from "./Avatar";
 
-export function StrutCard({ strut }: { strut: Strut }) {
+export function StrutCard({ strut, className = "" }: { strut: Strut; className?: string }) {
   const ref = useRef<HTMLVideoElement>(null);
   const wrap = useRef<HTMLDivElement>(null);
   const [playing, setPlaying] = useState(false);
@@ -55,7 +55,7 @@ export function StrutCard({ strut }: { strut: Strut }) {
   return (
     <div
       ref={wrap}
-      className="relative h-[100svh] w-full shrink-0 snap-start snap-always overflow-hidden bg-foreground"
+      className={`relative h-[100svh] w-full shrink-0 snap-start snap-always overflow-hidden bg-foreground ${className}`}
     >
       <video
         ref={ref}
