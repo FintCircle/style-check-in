@@ -98,9 +98,19 @@ function SidekickPage() {
         <SidekickCard key={post.id} post={post} />
       ))}
 
-      <button className="fixed bottom-6 left-1/2 z-40 flex -translate-x-1/2 items-center gap-2 rounded-full bg-primary px-5 py-3.5 font-display text-sm font-semibold text-primary-foreground shadow-lg">
+      <button
+        onClick={() => setComposing(true)}
+        className="fixed bottom-6 left-1/2 z-40 flex -translate-x-1/2 items-center gap-2 rounded-full bg-primary px-5 py-3.5 font-display text-sm font-semibold text-primary-foreground shadow-lg"
+      >
         <Plus className="size-4" /> Post to Sidekick
       </button>
+
+      {composing && (
+        <SidekickComposer
+          onClose={() => setComposing(false)}
+          onPost={(post) => setPosts((list) => [post, ...list])}
+        />
+      )}
     </main>
   );
 }
