@@ -81,6 +81,7 @@ export const SIDEKICK_POSTS: SidekickPost[] = [
   {
     id: "s1",
     kind: "rate",
+    audience: "everyone",
     name: "Derrick M.",
     initials: "DM",
     handle: "@derrick",
@@ -102,6 +103,7 @@ export const SIDEKICK_POSTS: SidekickPost[] = [
   {
     id: "s2",
     kind: "pick",
+    audience: "everyone",
     name: "Maya R.",
     initials: "MR",
     handle: "@maya",
@@ -120,6 +122,7 @@ export const SIDEKICK_POSTS: SidekickPost[] = [
   {
     id: "s3",
     kind: "keep",
+    audience: "my-people",
     name: "Daniel O.",
     initials: "DO",
     handle: "@daniel",
@@ -140,6 +143,7 @@ export const SIDEKICK_POSTS: SidekickPost[] = [
   {
     id: "s4",
     kind: "style",
+    audience: "everyone",
     name: "Nia B.",
     initials: "NB",
     handle: "@nia",
@@ -173,6 +177,7 @@ export const SIDEKICK_POSTS: SidekickPost[] = [
   {
     id: "s5",
     kind: "rate",
+    audience: "everyone",
     name: "Tariq A.",
     initials: "TA",
     handle: "@tariq",
