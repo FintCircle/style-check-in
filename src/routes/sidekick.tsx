@@ -34,10 +34,12 @@ const FILTERS: ("all" | SidekickKind)[] = ["all", "rate", "pick", "keep", "style
 
 function SidekickPage() {
   const [filter, setFilter] = useState<"all" | SidekickKind>("all");
+  const [posts, setPosts] = useState<SidekickPost[]>(SIDEKICK_POSTS);
+  const [composing, setComposing] = useState(false);
 
   const visible = useMemo(
-    () => (filter === "all" ? SIDEKICK_POSTS : SIDEKICK_POSTS.filter((p) => p.kind === filter)),
-    [filter],
+    () => (filter === "all" ? posts : posts.filter((p) => p.kind === filter)),
+    [filter, posts],
   );
 
   return (
