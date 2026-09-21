@@ -52,6 +52,7 @@ export function SidekickComposer({ onClose, onPost }: Props) {
   function submit() {
     const base = {
       id: `sk-${Date.now()}`,
+      audience,
       name: "You",
       initials: "YO",
       handle: "@you",
@@ -249,11 +250,46 @@ export function SidekickComposer({ onClose, onPost }: Props) {
           This shows on your post as “More from {firstName}”.
         </p>
 
+        <p className="label-caps mt-5 text-muted-foreground">Who can see it</p>
+        <div className="mt-2 grid grid-cols-2 gap-2">
+          {(
+            [
+              {
+                value: "everyone" as const,
+                label: "Everyone",
+                note: "The whole Scruttin community",
+                Icon: Globe2,
+              },
+              {
+                value: "my-people" as const,
+                label: "My People",
+                note: "Only the people you've added",
+                Icon: Users,
+              },
+            ]
+          ).map(({ value, label, note, Icon }) => (
+            <button
+              key={value}
+              onClick={() => setAudience(value)}
+              className={
+                audience === value
+                  ? "rounded-xl border-2 border-foreground bg-card p-3 text-left"
+                  : "rounded-xl border border-border bg-card p-3 text-left"
+              }
+            >
+              <Icon className="size-4" />
+              <p className="mt-1.5 text-sm font-semibold">{label}</p>
+              <p className="text-xs text-muted-foreground">{note}</p>
+            </button>
+          ))}
+        </div>
+
         <button
           onClick={submit}
           className="mt-5 flex h-12 w-full items-center justify-center gap-2 rounded-lg bg-primary font-display text-sm font-semibold text-primary-foreground"
         >
-          <Check className="size-4" /> Post — {KIND_META[kind].label}
+          <Check className="size-4" /> Post to {audience === "everyone" ? "Everyone" : "My People"} —{" "}
+          {KIND_META[kind].label}
         </button>
       </div>
     </div>
