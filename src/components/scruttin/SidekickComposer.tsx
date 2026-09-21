@@ -52,7 +52,7 @@ export function SidekickComposer({ onClose, onPost }: Props) {
       place: "Kampala",
       ago: "now",
       question: question.trim() || PLACEHOLDER[kind],
-      more: more.trim() || undefined,
+      ...(more.trim() ? { more: more.trim() } : {}),
       likes: 0,
       thoughts: 0,
     };
