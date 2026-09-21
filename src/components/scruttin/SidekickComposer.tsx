@@ -1,6 +1,11 @@
 import { useState } from "react";
-import { Camera, Check, Scale, Sparkles, Star, Vote, X, Zap } from "lucide-react";
-import { KIND_META, type SidekickKind, type SidekickPost } from "@/lib/sidekick-data";
+import { Camera, Check, Globe2, Scale, Sparkles, Star, Users, Vote, X, Zap } from "lucide-react";
+import {
+  KIND_META,
+  type SidekickAudience,
+  type SidekickKind,
+  type SidekickPost,
+} from "@/lib/sidekick-data";
 import outfit1 from "@/assets/outfit-1.jpg";
 import outfit4 from "@/assets/outfit-4.jpg";
 import itemJacket from "@/assets/item-jacket.jpg";
@@ -31,6 +36,7 @@ const PLACEHOLDER: Record<SidekickKind, string> = {
 
 export function SidekickComposer({ onClose, onPost }: Props) {
   const [kind, setKind] = useState<SidekickKind>("rate");
+  const [audience, setAudience] = useState<SidekickAudience>("everyone");
   const [question, setQuestion] = useState("");
   const [more, setMore] = useState("");
 
