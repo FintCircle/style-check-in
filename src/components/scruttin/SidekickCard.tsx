@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Bookmark, Check, Heart, MessageCircle, Sparkles, X, Zap } from "lucide-react";
+import { Bookmark, Check, Heart, MessageCircle, Sparkles, Users, X, Zap } from "lucide-react";
 import {
   KIND_META,
   type KeepPost,
@@ -31,6 +31,11 @@ export function SidekickCard({ post }: { post: SidekickPost }) {
           <span className="font-semibold text-foreground">{post.handle}</span>
           {post.place ? ` · ${post.place}` : ""} · {post.ago}
         </p>
+        {post.audience === "my-people" && (
+          <span className="ml-auto flex items-center gap-1 rounded-full border border-border px-2 py-0.5 text-[0.625rem] font-semibold tracking-wide text-muted-foreground uppercase">
+            <Users className="size-3" /> My People
+          </span>
+        )}
       </header>
 
       <h2 className="mt-3 text-[1.0625rem] leading-snug font-semibold">{post.question}</h2>
