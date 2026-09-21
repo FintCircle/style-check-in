@@ -7,9 +7,12 @@ import itemBlazer from "@/assets/item-blazer.jpg";
 
 export type SidekickKind = "rate" | "pick" | "keep" | "style";
 
+export type SidekickAudience = "everyone" | "my-people";
+
 type Base = {
   id: string;
   kind: SidekickKind;
+  audience: SidekickAudience;
   name: string;
   initials: string;
   handle: string;
