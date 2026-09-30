@@ -1,5 +1,5 @@
 import { createContext, useCallback, useContext, useMemo, useState, type ReactNode } from "react";
-import { PROFILES } from "./scruttin-profiles";
+import { PROFILES } from "./lebeho-profiles";
 
 type PeopleContextValue = {
   trusted: string[];
@@ -21,7 +21,7 @@ export function PeopleProvider({ children }: { children: ReactNode }) {
     setTrusted((list) => (list.includes(name) ? list.filter((n) => n !== name) : [...list, name]));
   }, []);
 
-  const inviteLink = "https://scruttin.app/i/you-4K2P";
+  const inviteLink = "https://lebeho.app/i/you-4K2P";
 
   const value = useMemo(
     () => ({ trusted, isTrusted, toggleTrust, inviteLink }),

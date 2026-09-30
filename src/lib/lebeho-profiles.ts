@@ -163,7 +163,7 @@ export function getProfile(name: string, fallbackInitials = "??"): Profile {
     handle: `@${name.toLowerCase().replace(/[^a-z]/g, "")}`,
     city: "Unknown",
     countryCode: "UG",
-    bio: "New to Scruttin.",
+    bio: "New to LeBeHo.",
     style: ["Everyday"],
     asked: 1,
     calledIt: 3,

@@ -7,13 +7,13 @@ import {
   type SidekickKind,
   type SidekickPost,
 } from "@/lib/sidekick-data";
-import { SidekickCard } from "@/components/scruttin/SidekickCard";
-import { SidekickComposer } from "@/components/scruttin/SidekickComposer";
+import { SidekickCard } from "@/components/lebeho/SidekickCard";
+import { SidekickComposer } from "@/components/lebeho/SidekickComposer";
 
 export const Route = createFileRoute("/sidekick")({
   head: () => ({
     meta: [
-      { title: "Sidekick — Rate, pick, decide, suggest | Scruttin" },
+      { title: "Sidekick — Rate, pick, decide, suggest | LeBeHo" },
       {
         name: "description",
         content:
@@ -23,7 +23,7 @@ export const Route = createFileRoute("/sidekick")({
       {
         property: "og:description",
         content:
-          "Four ways to ask on Scruttin: rate a fit, pick between two looks, decide keep or leave on a buy, or suggest how to style a piece.",
+          "Four ways to ask on LeBeHo: rate a fit, pick between two looks, decide keep or leave on a buy, or suggest how to style a piece.",
       },
     ],
   }),

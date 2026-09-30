@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { MessageCircle, Send, Users } from "lucide-react";
-import type { Comment, Post } from "@/lib/scruttin-data";
-import { getProfile, type Profile } from "@/lib/scruttin-profiles";
+import type { Comment, Post } from "@/lib/lebeho-data";
+import { getProfile, type Profile } from "@/lib/lebeho-profiles";
 import { Avatar } from "./Avatar";
 import { ClockPill, useCountdown } from "./Countdown";
 import { ProfileSheet } from "./ProfileSheet";

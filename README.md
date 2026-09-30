@@ -1,6 +1,6 @@
 # Style Check-In
 
-Build Scruttin. Scruttin is where you get a second opinion on what you're wearing. Scruttin — Get a second opinion. or Scruttin — Before you wear it, ask. or Scruttin — What do you think? Will have two audiences, one is Everyone is the default and two, My People, people connected with or chosen to trust by user. Be inspired by today's social platforms but of course be unique. Let's have a USP.
+Build LeBeHo. LeBeHo is where you get a second opinion on what you're wearing. LeBeHo — Get a second opinion. or LeBeHo — Before you wear it, ask. or LeBeHo — What do you think? Will have two audiences, one is Everyone is the default and two, My People, people connected with or chosen to trust by user. Be inspired by today's social platforms but of course be unique. Let's have a USP.
 
 This project was built with [Lovable](https://lovable.dev).
 
