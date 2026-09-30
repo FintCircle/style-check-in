@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { formatClock } from "@/lib/scruttin-data";
+import { formatClock } from "@/lib/lebeho-data";
 
 export function useCountdown(initialSeconds: number) {
   const [seconds, setSeconds] = useState(initialSeconds);

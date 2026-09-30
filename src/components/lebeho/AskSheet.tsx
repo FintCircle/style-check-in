@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Camera, Users, Globe, X } from "lucide-react";
-import { CLOCK_OPTIONS, OCCASIONS, type Audience, type Post } from "@/lib/scruttin-data";
+import { CLOCK_OPTIONS, OCCASIONS, type Audience, type Post } from "@/lib/lebeho-data";
 
 type Props = {
   onClose: () => void;
@@ -80,7 +80,7 @@ export function AskSheet({ onClose, onPost }: Props) {
                 key: "everyone" as Audience,
                 label: "Everyone",
                 Icon: Globe,
-                note: "The whole Scruttin community votes",
+                note: "The whole LeBeHo community votes",
               },
               {
                 key: "my-people" as Audience,
