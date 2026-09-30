@@ -1,22 +1,23 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMemo, useState, type ReactNode } from "react";
 import { Bell, Globe, Plus, UserPlus, Users } from "lucide-react";
-import { POSTS, type Audience, type Post } from "@/lib/scruttin-data";
-import { PeopleProvider, useMyPeople } from "@/lib/scruttin-people";
-import { PostCard } from "@/components/scruttin/PostCard";
-import { AskSheet } from "@/components/scruttin/AskSheet";
-import { PeopleSheet } from "@/components/scruttin/PeopleSheet";
+import { POSTS, type Audience, type Post } from "@/lib/lebeho-data";
+import { PeopleProvider, useMyPeople } from "@/lib/lebeho-people";
+import { PostCard } from "@/components/lebeho/PostCard";
+import { AskSheet } from "@/components/lebeho/AskSheet";
+import { PeopleSheet } from "@/components/lebeho/PeopleSheet";
+import { BrandName } from "@/components/lebeho/BrandName";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Scruttin — Before you wear it, ask" },
+      { title: "LeBeHo — Before you wear it, ask" },
       {
         name: "description",
         content:
           "Post the outfit, set a clock, get a straight verdict before you walk out the door. Ask everyone, or just your people.",
       },
-      { property: "og:title", content: "Scruttin — Before you wear it, ask" },
+      { property: "og:title", content: "LeBeHo — Before you wear it, ask" },
       {
         property: "og:description",
         content:
@@ -59,7 +60,9 @@ function Index() {
       <header className="sticky top-0 z-30 border-b border-border bg-background/95 backdrop-blur">
         <div className="flex items-center justify-between px-4 pt-4">
           <div>
-            <h1 className="text-2xl leading-none font-semibold">Scruttin</h1>
+            <h1 className="text-2xl leading-none font-semibold">
+              <BrandName />
+            </h1>
             <p className="mt-1 text-xs text-muted-foreground">
               {liveCount} outfit{liveCount === 1 ? "" : "s"} still on the clock
             </p>
@@ -110,7 +113,7 @@ function Index() {
       </header>
 
       <section className="border-b border-border bg-secondary px-4 py-4">
-        <p className="label-caps text-muted-foreground">The Scruttin rule</p>
+        <p className="label-caps text-muted-foreground">The LeBeHo rule</p>
         <p className="mt-1.5 text-sm leading-snug">
           When you ask, you choose who answers: the whole community, or only your people. Every
           outfit runs on a clock, verdicts stay hidden until you vote, and the result locks when

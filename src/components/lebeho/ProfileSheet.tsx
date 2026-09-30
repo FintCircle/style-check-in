@@ -1,6 +1,6 @@
 import { MapPin, UserPlus, Users, X } from "lucide-react";
-import { countryName, type Profile } from "@/lib/scruttin-profiles";
-import { useMyPeople } from "@/lib/scruttin-people";
+import { countryName, type Profile } from "@/lib/lebeho-profiles";
+import { useMyPeople } from "@/lib/lebeho-people";
 import { Avatar } from "./Avatar";
 import { CountrySilhouette } from "./CountrySilhouette";
 
@@ -61,7 +61,7 @@ export function ProfileSheet({ profile, onClose }: { profile: Profile; onClose: 
           <Stat label="Trusted by" value={profile.trustedBy.toLocaleString()} />
         </div>
 
-        <p className="mt-3 text-xs text-muted-foreground">On Scruttin since {profile.joined}</p>
+        <p className="mt-3 text-xs text-muted-foreground">On LeBeHo since {profile.joined}</p>
 
         <button
           onClick={() => toggleTrust(profile.name)}

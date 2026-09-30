@@ -5,7 +5,7 @@
 @custom-variant dark (&:is(.dark *));
 
 /*
- * Scruttin design system — "Paper & Ink".
+ * LeBeHo design system — "Paper & Ink".
  * Warm paper background, near-black ink, one live/urgent accent.
  * All colors are oklch tokens. Never hardcode colors in components.
  */
@@ -111,7 +111,7 @@
   font-variant-numeric: tabular-nums;
 }
 
-@keyframes scr-pulse {
+@keyframes lebeho-pulse {
   0%,
   100% {
     opacity: 1;
@@ -122,10 +122,10 @@
 }
 
 @utility live-dot {
-  animation: scr-pulse 1.4s ease-in-out infinite;
+  animation: lebeho-pulse 1.4s ease-in-out infinite;
 }
 
-@keyframes scr-rise {
+@keyframes lebeho-rise {
   from {
     opacity: 0;
     transform: translateY(8px);
@@ -137,5 +137,5 @@
 }
 
 @utility rise {
-  animation: scr-rise 0.32s cubic-bezier(0.2, 0.7, 0.3, 1) both;
+  animation: lebeho-rise 0.32s cubic-bezier(0.2, 0.7, 0.3, 1) both;
 }

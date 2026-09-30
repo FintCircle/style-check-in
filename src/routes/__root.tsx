@@ -77,13 +77,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Scruttin — Get a second opinion" },
+      { title: "LeBeHo — Get a second opinion" },
       {
         name: "description",
         content: "Ask before you wear it. A straight verdict on your outfit, on the clock.",
       },
-      { name: "author", content: "Scruttin" },
-      { property: "og:title", content: "Scruttin — Get a second opinion" },
+      { name: "author", content: "LeBeHo" },
+      { property: "og:title", content: "LeBeHo — Get a second opinion" },
       {
         property: "og:description",
         content: "Ask before you wear it. A straight verdict on your outfit, on the clock.",

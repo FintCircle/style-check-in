@@ -257,7 +257,7 @@ export function SidekickComposer({ onClose, onPost }: Props) {
               {
                 value: "everyone" as const,
                 label: "Everyone",
-                note: "The whole Scruttin community",
+                note: "The whole LeBeHo community",
                 Icon: Globe2,
               },
               {

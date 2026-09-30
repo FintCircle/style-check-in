@@ -2,18 +2,19 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Info, X } from "lucide-react";
 import { STRUTS, STRUT_RULES } from "@/lib/strut-data";
-import { StrutCard } from "@/components/scruttin/StrutCard";
+import { StrutCard } from "@/components/lebeho/StrutCard";
+import { BrandName } from "@/components/lebeho/BrandName";
 
 export const Route = createFileRoute("/strut")({
   head: () => ({
     meta: [
-      { title: "Strut — Fashion in 60 seconds | Scruttin" },
+      { title: "Strut — Fashion in 60 seconds | LeBeHo" },
       {
         name: "description",
         content:
           "Strut is fashion in motion: outfit reveals, GRWM snippets, thrift finds and runway walks in 60 seconds or less. No filters, no effects, no music library.",
       },
-      { property: "og:title", content: "Strut — Fashion in 60 seconds" },
+      { property: "og:title", content: "LeBeHo Strut — Fashion in 60 seconds" },
       {
         property: "og:description",
         content:
@@ -32,9 +33,11 @@ function StrutPage() {
       <header className="pointer-events-none absolute inset-x-0 top-0 z-30 flex items-center justify-between px-4 pt-4">
         <div className="pointer-events-auto flex items-center gap-3">
           <Link to="/" className="text-sm font-medium text-background/70">
-            Feed
+            <BrandName />
           </Link>
-          <h1 className="text-lg leading-none font-semibold text-background">Strut</h1>
+          <h1 className="text-lg leading-none font-semibold text-background">
+            <BrandName /> Strut
+          </h1>
           <span className="label-caps text-background/60">60s max</span>
         </div>
         <button
