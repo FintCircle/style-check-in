@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Check, Copy, Share2, UserPlus, Users, X } from "lucide-react";
-import { PROFILES, countryName } from "@/lib/scruttin-profiles";
-import { useMyPeople } from "@/lib/scruttin-people";
+import { PROFILES, countryName } from "@/lib/lebeho-profiles";
+import { useMyPeople } from "@/lib/lebeho-people";
 import { Avatar } from "./Avatar";
 
 export function PeopleSheet({ onClose }: { onClose: () => void }) {
@@ -26,8 +26,8 @@ export function PeopleSheet({ onClose }: { onClose: () => void }) {
     if (typeof navigator !== "undefined" && "share" in navigator) {
       try {
         await navigator.share({
-          title: "Scruttin",
-          text: "Be one of my people on Scruttin — tell me straight before I walk out the door.",
+          title: "LeBeHo",
+          text: "Be one of my people on LeBeHo — tell me straight before I walk out the door.",
           url: inviteLink,
         });
         return;

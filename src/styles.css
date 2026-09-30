@@ -5,7 +5,7 @@
 @custom-variant dark (&:is(.dark *));
 
 /*
- * Scruttin design system — "Paper & Ink".
+ * LeBeHo design system — "Paper & Ink".
  * Warm paper background, near-black ink, one live/urgent accent.
  * All colors are oklch tokens. Never hardcode colors in components.
  */

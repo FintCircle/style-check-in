@@ -2,12 +2,12 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Info, X } from "lucide-react";
 import { STRUTS, STRUT_RULES } from "@/lib/strut-data";
-import { StrutCard } from "@/components/scruttin/StrutCard";
+import { StrutCard } from "@/components/lebeho/StrutCard";
 
 export const Route = createFileRoute("/strut")({
   head: () => ({
     meta: [
-      { title: "Strut — Fashion in 60 seconds | Scruttin" },
+      { title: "Strut — Fashion in 60 seconds | LeBeHo" },
       {
         name: "description",
         content:
