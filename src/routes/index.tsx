@@ -6,7 +6,6 @@ import { PeopleProvider, useMyPeople } from "@/lib/lebeho-people";
 import { PostCard } from "@/components/lebeho/PostCard";
 import { AskSheet } from "@/components/lebeho/AskSheet";
 import { PeopleSheet } from "@/components/lebeho/PeopleSheet";
-import { BrandName } from "@/components/lebeho/BrandName";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -60,9 +59,7 @@ function Index() {
       <header className="sticky top-0 z-30 border-b border-border bg-background/95 backdrop-blur">
         <div className="flex items-center justify-between px-4 pt-4">
           <div>
-            <h1 className="text-2xl leading-none font-semibold">
-              <BrandName />
-            </h1>
+            <h1 className="text-2xl leading-none font-semibold">LeBeHo</h1>
             <p className="mt-1 text-xs text-muted-foreground">
               {liveCount} outfit{liveCount === 1 ? "" : "s"} still on the clock
             </p>

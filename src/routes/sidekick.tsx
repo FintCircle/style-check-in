@@ -9,7 +9,6 @@ import {
 } from "@/lib/sidekick-data";
 import { SidekickCard } from "@/components/lebeho/SidekickCard";
 import { SidekickComposer } from "@/components/lebeho/SidekickComposer";
-import { BrandName } from "@/components/lebeho/BrandName";
 
 export const Route = createFileRoute("/sidekick")({
   head: () => ({
@@ -48,9 +47,7 @@ function SidekickPage() {
       <header className="sticky top-0 z-30 border-b border-border bg-background/95 backdrop-blur">
         <div className="flex items-center justify-between px-4 pt-4">
           <div>
-            <h1 className="text-2xl leading-none font-semibold">
-              <BrandName /> Sidekick
-            </h1>
+            <h1 className="text-2xl leading-none font-semibold">LeBeHo Sidekick</h1>
             <p className="mt-1 text-xs text-muted-foreground">
               Room to explain yourself — no clock, no rush
             </p>
@@ -60,7 +57,7 @@ function SidekickPage() {
               to="/"
               className="label-caps rounded-full border border-border px-2.5 py-1.5 text-foreground"
             >
-              <BrandName />
+              LeBeHo
             </Link>
             <Link
               to="/strut"

@@ -3,7 +3,6 @@ import { useState } from "react";
 import { Info, X } from "lucide-react";
 import { STRUTS, STRUT_RULES } from "@/lib/strut-data";
 import { StrutCard } from "@/components/lebeho/StrutCard";
-import { BrandName } from "@/components/lebeho/BrandName";
 
 export const Route = createFileRoute("/strut")({
   head: () => ({
@@ -33,11 +32,9 @@ function StrutPage() {
       <header className="pointer-events-none absolute inset-x-0 top-0 z-30 flex items-center justify-between px-4 pt-4">
         <div className="pointer-events-auto flex items-center gap-3">
           <Link to="/" className="text-sm font-medium text-background/70">
-            <BrandName />
+            LeBeHo
           </Link>
-          <h1 className="text-lg leading-none font-semibold text-background">
-            <BrandName /> Strut
-          </h1>
+          <h1 className="text-lg leading-none font-semibold text-background">LeBeHo Strut</h1>
           <span className="label-caps text-background/60">60s max</span>
         </div>
         <button
